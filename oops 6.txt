@@ -1,0 +1,88 @@
+#include <iostream>
+using namespace std;
+class person 
+{
+public:
+    char name[20];
+    int id;
+    void getdata() 
+    {
+        cout << "Enter Name :";
+        cin >> name;
+        cout << "Enter id :";
+        cin >> id;
+    }
+
+    void display() 
+    {
+        cout << "Name :" << name;
+        cout << endl;
+        cout << "id :" << id;
+        cout << endl;
+    }
+};
+
+class account : virtual public person 
+{
+    public:
+    float price;
+    void getprice() 
+    {
+        cout << "Enter per annum payment :";
+        cin >> price;
+    }
+
+    void display() 
+    {
+        cout << "Per annum payment :" << price;
+        cout << endl;
+    }
+};
+
+class admin : virtual public person 
+{
+    public:
+    int experience;
+    void getEx() 
+    {
+        cout << "Enter your work Expereince :";
+        cin >> experience;
+    }
+
+    void display() 
+    {
+        cout << "Experience :" << experience << ", name " << name;
+        cout << endl;
+    }
+};
+
+class master: public account,public admin
+{
+    public :
+    char n[10];
+    void gettotal()
+    {
+        cout<<"Enter pervious Company name of "<<name<<":";
+        cin>>n;
+    }
+    void display()
+    {
+        cout<<"Previous Company of "<<name <<" was :";
+        cout<<n;
+        cout<<endl;
+    }
+};
+int main()
+{
+    cout << "---- Jaydeep ----\n";
+    master m;
+    m.getdata();
+    m.getprice();
+    m.getEx();
+    m.gettotal();
+
+    m.person::display();
+    m.account::display();
+    m.admin::display();
+    m.display();
+}

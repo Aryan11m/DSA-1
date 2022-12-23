@@ -1,0 +1,99 @@
+Program Code:-
+
+
+#include<iostream>
+using namespace std;
+class B;
+class A
+{
+public:
+float meter;
+float centimeter;
+public:
+void getdata()
+{
+cout << "Meter: " ;
+cin >> meter;
+cout << "Centimeter: " ;
+cin >> centimeter;
+}
+void display()
+{
+cout << "Meter = " << meter << " " << "Centimeter =" << centimeter <<
+endl;
+}
+friend void add(A &a, B &b);
+};
+class B
+
+{
+public:
+float feet;
+float inches;
+public:
+void getdata()
+{
+cout << "Feet: " ;
+cin >> feet;
+cout << "Inches: " ;
+cin >> inches;
+}
+void display()
+{
+cout << "Feet = " << feet << " " << "Inches" << inches << endl;
+}
+friend void add(A &a, B &b);
+};
+void add(A &a, B &b)
+{
+int choice;
+cout << "Student Name: Jaydeep Jagdale" << endl;
+cout << " Enter [1] to convert feet & inches into meter and centimeter" <<
+endl;
+cout << " Enter [2] to convert meter & centimeter into feet and inches" <<
+endl;
+cout << "Enter your choice:";
+cin >> choice;
+if (choice == 1)
+{
+A d;
+int c=(a.meter * 100 + a.centimeter + b.feet * 30.48 + b.inches * 2.54);
+if (c > 100)
+{
+d.meter = c / 100;
+d.centimeter = c % 100;
+}
+else
+{
+d.meter = 0;
+d.centimeter = c;
+}
+d.display();
+}
+else
+{
+B e;
+int i = (a.meter * 39.37 + a.centimeter * .3937008 + b.feet * 12 +
+b.inches);
+if (i >= 12)
+{
+e.feet = i / 12;
+
+e.inches = i % 12;
+}
+else
+{
+e.feet = 0;
+e.inches = i;
+}
+e.display();
+}
+}
+int main()
+{
+A a;
+B b;
+a.getdata();
+b.getdata();
+add(a, b);
+}

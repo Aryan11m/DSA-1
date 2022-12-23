@@ -1,0 +1,75 @@
+Program Code:-
+#include <iostream>
+#include <string.h>
+#include <stdio.h>
+using namespace std;
+class Bank
+{
+int AccountNumber;
+char AccountHolderName[100], Account_Type[100];
+float Balance;
+public:
+Bank(int acc_no, char *name, char *acc_type, float bal)
+{
+AccountNumber = acc_no;
+strcpy(AccountHolderName, name);
+strcpy(Account_Type, acc_type);
+Balance = bal;
+}
+void deposit();
+void withdraw();
+void show();
+};
+void Bank::deposit()
+{
+int DepositAmmount;
+cout << " Enter Deposit Amount = " ;
+cin >> DepositAmmount;
+Balance = Balance + DepositAmmount;
+cout << "Transition Details :-- Credit --" << endl;
+}
+void Bank::withdraw()
+{
+int WithdrawAmmount;
+cout << " Enter Withdraw Amount = " ;
+cin >> WithdrawAmmount;
+if (WithdrawAmmount > Balance)
+{
+cout << " Cannot Withdraw Amount" ;
+}
+Balance = Balance - WithdrawAmmount;
+cout << "Transition Details :-- Debit --" << endl;
+}
+void Bank::show()
+{
+cout << " " << " Accout No. : " << AccountNumber << endl;
+cout << " " << " Name : " << AccountHolderName << endl;
+cout << " " << " Account Type : " << Account_Type << endl;
+cout << " " << " Balance : " << Balance << endl;
+}
+int main()
+{
+int acc_no;
+char name[100], acc_type[100];
+float bal;
+cout << " ------------------Welcome to Tate BANK------------------- " << endl;
+cout <<
+"________________________________________________________" << endl;
+cout << " Please add account accout No.: ";
+cin >> acc_no;
+cout << " Please Enter Account Holder Name : ";
+cin >> name;
+cout << " Mention Account Type : ";
+cin >> acc_type;
+cout << " Initial Balance : ";
+cin >> bal;
+cout << "\n" << endl;
+cout << "Student Name: Jaydeep Jagdale" << endl;
+cout << "\n" << endl;
+Bank b1(acc_no, name, acc_type, bal);
+b1.deposit();
+b1.show();
+b1.withdraw();
+b1.show();
+return 0;
+}

@@ -1,0 +1,29 @@
+//jaydeep jagdale b13
+#include<iostream>
+using namespace std;
+int area_circle(float r);
+int area_triangle(float h, float b);
+int main()
+{
+float h,b,r;
+cout << "Enter the height of traingle : ";
+cin >> h;
+cout << "Enter the base of traingle : ";
+cin >> b;
+cout << "Enter the Radius of the circle : ";
+cin >>r;
+cout << "Student Name : jaydeep jagdale " << endl ;
+cout << "Area of Triangle is : " << area_triangle( h, b) << endl;
+cout << "Area of Cirlce is : " << area_circle(r);
+return 0;
+}
+int area_circle(float r)
+{
+int area_circle = 3.14 * r * r;
+return area_circle;
+}
+int area_triangle(float h, float b)
+{
+float area_triangle = 0.5 * h * b;
+return area_triangle;
+}
